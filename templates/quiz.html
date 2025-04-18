@@ -31,6 +31,14 @@
 			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="None">None</button>
 		</div>
 		{% endif %}
+		{% if question.page == 5 %}
+		<div class="mt-4 d-flex justify-content-center flex-wrap gap-5" id="options-row">
+			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Commit">A</button>
+			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Tree">B</button>
+			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Blob">C</button>
+			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="None">D</button>
+		</div>
+		{% endif %}
 
 		<div class="card-footer d-flex justify-content-between">
 			{% if question.page > 1 %}
