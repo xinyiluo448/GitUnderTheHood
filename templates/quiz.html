@@ -13,9 +13,11 @@
 				{% for img in question.images %}
 					{% set img_width = 100 / img_count %}
 					<img src="{{ url_for('static', filename=img) }}"
-						class="rounded shadow-sm"
+						class="rounded shadow-sm clickable-image"
 						style="flex: 1 1 calc({{ img_width }}% - 1rem); max-width: calc({{ img_width }}% - 1rem); height: auto; object-fit: contain;"
-						alt="Image for question {{ question.page }}">
+						alt="Image for question {{ question.page }}"
+						id="img-{{ loop.index }}" 
+                     				data-index="{{ loop.index }}">
 				{% endfor %}
 			</div>
 			{% endif %}
