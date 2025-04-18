@@ -1,0 +1,28 @@
+[
+	{
+		"page": 1,
+		"prompt": "1. Drag the corresponding Git Object to the correct circles based on the internal structure of Git.",
+		"images": ["images/quiz1.png"]
+	},
+	{
+		"page": 2,
+		"prompt": "2. You are given the initial git repository, with one file quiz.txt in it. The initial structure is demonstrated below. Suppose you make some changes to quiz.txt without committing it, which Git object will be created?",
+		"images": ["images/quiz2.png"]
+	},
+	{
+		"page": 3,
+		"prompt": "3. Now, you committed your change to quiz.txt. Which of the following graphs correctly represents the new structure?",
+		"images": ["images/quiz3-1.png", "images/quiz3-2.png"]
+	},
+	{
+		"page": 4,
+		"prompt": "4. Now, let’s make a sub-directory “subdir” inside of repo. Suppose you commit his empty subdir. Which of the below structures is correct?",
+		"images": ["images/quiz4-1.png", "images/quiz4-2.png"]
+	},
+	{
+		"page": 5,
+		"prompt": "5. Which of the following best describes the purpose of .git/index file in Git?\n\nA) It stores the complete history of commits and branches.\nB) It contains configuration settings for the Git repository.\nC) It represents the staging area by tracking files and their blob object hashes.\nD) It holds the contents of the working directory.",
+		"images": []
+	}
+]
+      

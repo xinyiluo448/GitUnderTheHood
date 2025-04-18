@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title">Question {{ question.page }}</h5>
+			<p class="card-text" style="white-space: pre-wrap;">{{ question.prompt }}</p>
+
+			{% if question.images %}
+			<div class="d-flex justify-content-center flex-wrap mt-4" style="gap: 1rem;">
+				{% set img_count = question.images | length %}
+				{% for img in question.images %}
+					{% set img_width = 100 / img_count %}
+					<img src="{{ url_for('static', filename=img) }}"
+						class="rounded shadow-sm"
+						style="flex: 1 1 calc({{ img_width }}% - 1rem); max-width: calc({{ img_width }}% - 1rem); height: auto; object-fit: contain;"
+						alt="Image for question {{ question.page }}">
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+
+		<div class="card-footer d-flex justify-content-between">
+			{% if question.page > 1 %}
+			<a href="{{ url_for('quiz', page=question.page - 1) }}" class="btn btn-outline-secondary">
+				&laquo; Previous
+			</a>
+			{% else %}
+			<div></div> 
+			{% endif %}
+
+			{% if question.page < total_pages %}
+			<a href="{{ url_for('quiz', page=question.page + 1) }}" class="btn btn-outline-primary">
+				Next &raquo;
+			</a>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}
