@@ -2,6 +2,9 @@
 
 {% block content %}
 <div class="container mt-5">
+	<div class="progress mb-3">
+		<div class="progress-bar" role="progressbar" style="width: {{ (question.page / total_pages) * 100 }}%;" aria-valuenow="{{ question.page }}" aria-valuemin="0" aria-valuemax="{{ total_pages }}"></div>
+	</div>
 	<div class="card">
 		<div class="card-body">
 			<h5 class="card-title">Question {{ question.page }}</h5>
