@@ -14,14 +14,23 @@ def homepage():
     session.clear()
     return render_template('home.html')
 
-@app.route('/learn/<int:page>', methods=['GET','POST'])
+@app.route('/learn/<int:page>', methods=['GET', 'POST'])
 def learn(page):
-    total = len(tutorials)
+    total = len(tutorials)  # Total number of slides
     slide = next((s for s in tutorials if s['page'] == page), None)
     if not slide:
         return "Slide not found", 404
 
-    session.setdefault('visited_slides', []).append(page)
+    # Track visited slides in session
+    if 'visited_slides' not in session:
+        session['visited_slides'] = []
+    if page not in session['visited_slides']:
+        session['visited_slides'].append(page)
+
+    # Store the time the user enters the page
+    if 'entry_times' not in session:
+        session['entry_times'] = {}
+    session['entry_times'][page] = session['entry_times'].get(page, request.args.get('entry_time', ''))
 
     if request.method == 'POST':
         if page < total:
@@ -29,6 +38,7 @@ def learn(page):
         else:
             return redirect(url_for('quiz', page=1))
 
+    # Pass the current slide, page number, and total slides to the template
     return render_template('tutorial.html', slide=slide, page=page, total=total)
 
 def load_questions():
