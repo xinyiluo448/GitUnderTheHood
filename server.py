@@ -4,19 +4,38 @@ import json
 app = Flask(__name__)
 app.secret_key = 'gitunderthehood'
 
+def load_tutorial():
+    with open("data/tutorial.json", 'r', encoding='utf-8') as f:
+        return json.load(f)
+tutorials = load_tutorial()
+
+@app.route('/')
+def homepage():
+    session.clear()
+    return render_template('home.html')
+
+@app.route('/learn/<int:page>', methods=['GET','POST'])
+def learn(page):
+    total = len(tutorials)
+    slide = next((s for s in tutorials if s['page'] == page), None)
+    if not slide:
+        return "Slide not found", 404
+
+    session.setdefault('visited_slides', []).append(page)
+
+    if request.method == 'POST':
+        if page < total:
+            return redirect(url_for('learn', page=page + 1))
+        else:
+            return redirect(url_for('quiz', page=1))
+
+    return render_template('tutorial.html', slide=slide, page=page, total=total)
+
 def load_questions():
 	with open("data/quiz.json", 'r', encoding='utf-8') as f:
 		return json.load(f)
 
 questions = load_questions()
-
-@app.route('/')
-def homepage():
-	return render_template('base.html')
-
-@app.route('/learn')
-def learn():
-	return render_template('base.html')
 
 @app.route('/quiz/<int:page>', methods=["GET", "POST"])
 def quiz(page):

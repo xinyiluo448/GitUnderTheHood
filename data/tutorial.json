@@ -1,0 +1,63 @@
+[
+    {
+      "page": 1,
+      "title": "Three Major Types of Git Objects",
+      "content": [
+        "<strong>Commit:</strong> metadata (author, timestamp, message) → points to a tree",
+        "<strong>Tree:</strong> directory structure → points to blobs/trees",
+        "<strong>Blob:</strong> raw file data"
+      ]
+    },
+    {
+      "page": 2,
+      "title": "Initial Structure",
+      "content": [
+        "Imagine you cloned a repo with just <code>hello.c</code>. Under the hood:",
+        "• A <strong>commit</strong> marks the snapshot",
+        "• That commit points to a <strong>tree</strong>",
+        "• The tree points to a <strong>blob</strong> containing <code>hello.c</code>"
+      ]
+    },
+    {
+      "page": 3,
+      "title": "Making a Commit",
+      "content": [
+        "Now let’s add a <code>Makefile</code> and commit it:"
+      ],
+      "code": "echo \"hello:\" > Makefile\ngit add Makefile && git commit -m \"Add Makefile\""
+    },
+    {
+      "page": 4,
+      "title": "Committing a Change to an Existing File",
+      "content": [
+        "Edit <code>hello.c</code>, then commit again. Git:",
+        "• reuses the same blob for unchanged files",
+        "• creates a new blob if the file changed"
+      ],
+      "code": "vim hello.c\ngit add hello.c && git commit -m \"Add an epic line\""
+    },
+    {
+      "page": 5,
+      "title": "Subdirectories",
+      "content": [
+        "Git represents folders via nested trees. Example:"
+      ],
+      "code": "mkdir subdir\necho \"abc\" > subdir/notes.txt\ngit add subdir/notes.txt && git commit -m \"Track notes.txt\""
+    },
+    {
+      "page": 6,
+      "title": "The Index",
+      "content": [
+        "The <code>.git/index</code> is your staging area. It maps filenames → blob hashes before you commit."
+      ]
+    },
+    {
+      "page": 7,
+      "title": "Tutorial Complete!",
+      "content": [
+        "You’ve seen how Git creates & links blobs, trees, commits, and uses the index.",
+        "Ready for the quiz?"
+      ]
+    }
+  ]
+  

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="vh-100 d-flex flex-column justify-content-center align-items-center">
+  <h1 class="mb-4">Learn Git’s Data Structure</h1>
+  <p class="lead">Click “Start” to begin the interactive tutorial.</p>
+  <a href="{{ url_for('learn', page=1) }}" class="btn btn-primary btn-lg">Start</a>
+</div>
+{% endblock %}
