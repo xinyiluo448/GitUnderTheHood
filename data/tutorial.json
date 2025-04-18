@@ -6,7 +6,8 @@
         "<strong>Commit:</strong> metadata (author, timestamp, message) → points to a tree",
         "<strong>Tree:</strong> directory structure → points to blobs/trees",
         "<strong>Blob:</strong> raw file data"
-      ]
+      ],
+      "image": "images/tutorial_1.jpg"
     },
     {
       "page": 2,
