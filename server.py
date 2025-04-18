@@ -34,7 +34,8 @@ def quiz(page):
 	if request.method == "POST":
 		if page > session['best_quiz_page']:
 			session['best_quiz_page'] = page
-		
+		if page == total_pages:
+			return redirect(url_for('quiz_result'))
 		return redirect(url_for('quiz', page=page + 1))
 
 	return render_template(
@@ -49,6 +50,10 @@ def quiz(page):
 def redo_quiz():
     session.clear()
     return redirect(url_for('quiz', page=1))
+
+@app.route("/quiz_result")
+def quiz_result():
+    return render_template("quiz_result.html")
 
 
 if __name__ == '__main__':
