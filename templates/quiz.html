@@ -23,6 +23,41 @@
 			{% endif %}
 		</div>
 
+		{% if question.page == 1 %}
+		<div class="mt-4 text-center">
+			<!-- Draggables -->
+			<div class="d-flex justify-content-center gap-5 mb-4">
+				<div class="draggable bg-warning px-4 py-2 rounded" draggable="true" id="Commit">Commit</div>
+				<div class="draggable bg-warning px-4 py-2 rounded" draggable="true" id="Tree">Tree</div>
+				<div class="draggable bg-warning px-4 py-2 rounded" draggable="true" id="Blob">Blob</div>
+			</div>
+
+			<!-- Droppable Circles with arrows -->
+			<div class="position-relative d-flex justify-content-center align-items-center gap-5 mt-5">
+				<!-- Commit Circle -->
+				<div class="droppable rounded-circle d-flex align-items-center justify-content-center" data-accept="Commit" style="width: 120px; height: 80px; background-color: #E7A868;">
+					<span class="drop-label fw-semibold"></span>
+				</div>
+
+				<!-- Arrow to Tree -->
+				<div class="arrow-right"></div>
+
+				<!-- Tree Circle -->
+				<div class="droppable rounded-circle d-flex align-items-center justify-content-center" data-accept="Tree" style="width: 120px; height: 80px; background-color: #7FA8B7;">
+					<span class="drop-label fw-semibold"></span>
+				</div>
+
+				<!-- Arrow to Blob -->
+				<div class="arrow-right"></div>
+
+				<!-- Blob Circle -->
+				<div class="droppable rounded-circle d-flex align-items-center justify-content-center" data-accept="Blob" style="width: 120px; height: 80px; background-color: #f5f5f5;">
+					<span class="drop-label fw-semibold"></span>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+
 		{% if question.page == 2 %}
 		<div class="mt-4 d-flex justify-content-center flex-wrap gap-5" id="options-row">
 			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Commit">Commit</button>

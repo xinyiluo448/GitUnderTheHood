@@ -18,3 +18,30 @@
 .red-border {
 	border: 5px solid red;
 }
+
+.draggable {
+    cursor: grab;
+    user-select: none;
+    font-weight: bold;
+}
+
+.droppable {
+    border: 2px dashed black;
+    font-size: 1rem;
+    position: relative;
+}
+
+.arrow-right {
+    width: 0; 
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 20px solid #333;
+}
+
+.bg-danger {
+    background-color: #dc3545 !important;
+}
+.text-white {
+    color: white !important;
+}

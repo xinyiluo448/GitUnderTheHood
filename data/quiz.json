@@ -2,7 +2,7 @@
 	{
 		"page": 1,
 		"prompt": "1. Drag the corresponding Git Object to the correct circles based on the internal structure of Git.",
-		"images": ["images/quiz1.png"]
+		"images": []
 	},
 	{
 		"page": 2,

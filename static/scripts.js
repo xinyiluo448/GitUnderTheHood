@@ -58,3 +58,35 @@ $(document).ready(function () {
 		});
 	}
 });
+
+document.querySelectorAll('.draggable').forEach(elem => {
+    elem.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('text/plain', e.target.id);
+        // Reset any error states when starting to drag
+        e.target.classList.remove('bg-danger', 'text-white');
+        e.target.classList.add('bg-warning');
+    });
+});
+
+document.querySelectorAll('.droppable').forEach(target => {
+    target.addEventListener('dragover', e => {
+        e.preventDefault();
+    });
+
+    target.addEventListener('drop', e => {
+        e.preventDefault();
+        const data = e.dataTransfer.getData('text/plain');
+        const expected = target.getAttribute('data-accept');
+        const draggableElem = document.getElementById(data);
+        
+        if (data === expected) {
+            target.querySelector('.drop-label').textContent = data;
+            draggableElem.style.visibility = 'hidden';
+            // Show next button if all are correct (you might want to add this logic)
+        } else {
+            // Make the draggable element red to show error
+            draggableElem.classList.remove('bg-warning');
+            draggableElem.classList.add('bg-danger', 'text-white');
+        }
+    });
+});
