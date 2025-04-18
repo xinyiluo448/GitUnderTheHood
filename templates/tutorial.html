@@ -10,6 +10,9 @@
     {% if slide.code %}
       <pre>{{ slide.code }}</pre>
     {% endif %}
+    {% if slide.image %}
+      <img src="{{ url_for('static', filename=slide.image) }}" alt="Tutorial Image" class="img-fluid">
+    {% endif %}
     <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: {{ (page / total) * 100 }}%;" aria-valuenow="{{ page }}" aria-valuemin="0" aria-valuemax="{{ total }}"></div>
     </div>
