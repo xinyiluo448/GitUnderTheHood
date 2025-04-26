@@ -3,6 +3,17 @@ $(document).ready(function () {
 	let correctNum = 0;
 
 	if (window.location.pathname.includes('/quiz/1')) {
+		if (bestQuizPage >= 1) {
+			$('.draggable').each(function() {
+				$(this).css('visibility', 'hidden');
+				const data = $(this).attr('id');
+				$(`.droppable[data-accept="${data}"] .drop-label`).text(data);
+			});
+			return;
+		}
+
+		$('.draggable').css('visibility', 'visible');
+
 		$('.draggable').on('dragstart', function (e) {
 			e.originalEvent.dataTransfer.setData('text/plain', this.id);
 			// Reset any error states when starting to drag
@@ -20,7 +31,7 @@ $(document).ready(function () {
 				const data = e.originalEvent.dataTransfer.getData('text/plain');
 				const expected = $(this).data('accept');
 				const $draggableElem = $('#' + data);
-		
+
 				if (data === expected) {
 					correctNum += 1;
 					$(this).find('.drop-label').text(data);

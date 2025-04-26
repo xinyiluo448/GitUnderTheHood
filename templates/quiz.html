@@ -59,6 +59,11 @@
 				</div>
 			</div>
 		</div>
+		<style>
+			.draggable {
+			  visibility: hidden;
+			}
+		  </style>
 		{% endif %}
 
 		{% if question.page == 2 %}
@@ -104,4 +109,8 @@
 		<a href="{{ url_for('redo_quiz') }}" class="btn btn-outline-secondary mt-3 ms-2">Redo Quiz</a>
 	</div>
 </div>
+
+<script>
+	const bestQuizPage = {{ best_quiz_page | tojson }};
+</script>
 {% endblock %}
