@@ -67,13 +67,38 @@ $(document).ready(function () {
 		});
 	}
 
-	if (window.location.pathname.includes('/quiz/3') || window.location.pathname.includes('/quiz/4')) {
+	if (window.location.pathname.includes('/quiz/3')) {
+		if (bestQuizPage >= 3) {
+			$("[data-index=1]").addClass("green-border");
+			return;
+		}
+
 		// Handle image click event
 		$(".clickable-image").on("click", function () {
 			var selectedIndex = $(this).data("index");
 
 			// If left image (index 1) is clicked, apply green border and show next button
-			// there might be a better way to handle this, but it works for now
+			if (selectedIndex === 1) {
+				$("[data-index=2]").removeClass("red-border");
+				$(this).addClass("green-border");
+				$("#next-btn").removeClass("d-none");
+				$(".clickable-image").off("click");
+			} else {
+				$(this).addClass("red-border"); 
+				$("#next-btn").addClass("d-none");
+			}
+		});
+	}
+
+	if (window.location.pathname.includes('/quiz/4')) {
+		if (bestQuizPage >= 4) {
+			$("[data-index=1]").addClass("green-border");
+		}
+
+		$(".clickable-image").on("click", function () {
+			var selectedIndex = $(this).data("index");
+
+			// If left image (index 1) is clicked, apply green border and show next button
 			if (selectedIndex === 1) {
 				$("[data-index=2]").removeClass("red-border");
 				$(this).addClass("green-border");
@@ -87,6 +112,8 @@ $(document).ready(function () {
 	}
 
 	if (window.location.pathname.includes('/quiz/5')) {
+		if (bestQuizPage >= 5) {
+		}
 		$(".option-btn").on("click", function () {
 			// Reset all buttons
 			$(".option-btn")

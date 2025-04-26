@@ -70,15 +70,24 @@
 		<div class="mt-4 d-flex justify-content-center flex-wrap gap-5" id="options-row">
 			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Commit">Commit</button>
 			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Tree">Tree</button>
-			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Blob">Blob</button>
+			{% if best_quiz_page >= 2 %}
+				<button class="btn btn-success option-btn px-4 py-3 fs-5" data-value="Blob">Blob</button>
+			{% else %}
+				<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Blob">Blob</button>
+			{% endif %}
 			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="None">None</button>
 		</div>
 		{% endif %}
+
 		{% if question.page == 5 %}
 		<div class="mt-4 d-flex justify-content-center flex-wrap gap-5" id="options-row">
 			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Commit">A</button>
 			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Tree">B</button>
-			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Blob">C</button>
+			{% if best_quiz_page >= 5 %}
+				<button class="btn btn-success option-btn px-4 py-3 fs-5" data-value="Blob">C</button>
+			{% else %}
+				<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="Blob">C</button>
+			{% endif %}
 			<button class="btn btn-outline-dark option-btn px-4 py-3 fs-5" data-value="None">D</button>
 		</div>
 		{% endif %}
