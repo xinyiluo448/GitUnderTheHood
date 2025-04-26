@@ -56,7 +56,7 @@ def quiz(page):
         return "Question not found", 404
     
     if 'best_quiz_page' not in session:
-        session['best_quiz_page'] = 1
+        session['best_quiz_page'] = -1
     
     # When user clicks "next", update best_quiz_page
     if request.method == "POST":

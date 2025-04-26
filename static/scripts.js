@@ -1,26 +1,43 @@
 $(document).ready(function () {
 	const correctAnswer = "Blob";
+	let correctNum = 0;
 
-	if (window.location.pathname.includes('/quiz/2')) {
-		$(".option-btn").on("click", function () {
-			// Reset all buttons
-			$(".option-btn")
-				.removeClass("btn-success btn-danger")
-				.addClass("btn-outline-dark");
-
-			const selected = $(this).data("value");
-
-			if (selected === correctAnswer) {
-				$(this).removeClass("btn-outline-dark").addClass("btn-success");
-				$("#next-btn").removeClass("d-none");
-			} else {
-				$(this).removeClass("btn-outline-dark").addClass("btn-danger");
-				$("#next-btn").addClass("d-none");
-			}
+	if (window.location.pathname.includes('/quiz/1')) {
+		$('.draggable').on('dragstart', function (e) {
+			e.originalEvent.dataTransfer.setData('text/plain', this.id);
+			// Reset any error states when starting to drag
+			$(this).removeClass('bg-danger text-white')
+				   .addClass('bg-warning');
+		});
+		
+		$('.droppable').each(function () {
+			$(this).on('dragover', function (e) {
+				e.preventDefault();
+			});
+		
+			$(this).on('drop', function (e) {
+				e.preventDefault();
+				const data = e.originalEvent.dataTransfer.getData('text/plain');
+				const expected = $(this).data('accept');
+				const $draggableElem = $('#' + data);
+		
+				if (data === expected) {
+					correctNum += 1;
+					$(this).find('.drop-label').text(data);
+					$draggableElem.css('visibility', 'hidden');
+					
+					if (correctNum == 3) {
+						$("#next-btn").removeClass("d-none");
+					}
+				} else {
+					$draggableElem.removeClass('bg-warning')
+								  .addClass('bg-danger text-white');
+				}
+			});
 		});
 	}
 
-	if (window.location.pathname.includes('/quiz/5')) {
+	if (window.location.pathname.includes('/quiz/2')) {
 		$(".option-btn").on("click", function () {
 			// Reset all buttons
 			$(".option-btn")
@@ -57,36 +74,23 @@ $(document).ready(function () {
 			}
 		});
 	}
-});
 
-document.querySelectorAll('.draggable').forEach(elem => {
-    elem.addEventListener('dragstart', e => {
-        e.dataTransfer.setData('text/plain', e.target.id);
-        // Reset any error states when starting to drag
-        e.target.classList.remove('bg-danger', 'text-white');
-        e.target.classList.add('bg-warning');
-    });
-});
+	if (window.location.pathname.includes('/quiz/5')) {
+		$(".option-btn").on("click", function () {
+			// Reset all buttons
+			$(".option-btn")
+				.removeClass("btn-success btn-danger")
+				.addClass("btn-outline-dark");
 
-document.querySelectorAll('.droppable').forEach(target => {
-    target.addEventListener('dragover', e => {
-        e.preventDefault();
-    });
+			const selected = $(this).data("value");
 
-    target.addEventListener('drop', e => {
-        e.preventDefault();
-        const data = e.dataTransfer.getData('text/plain');
-        const expected = target.getAttribute('data-accept');
-        const draggableElem = document.getElementById(data);
-        
-        if (data === expected) {
-            target.querySelector('.drop-label').textContent = data;
-            draggableElem.style.visibility = 'hidden';
-            // Show next button if all are correct (you might want to add this logic)
-        } else {
-            // Make the draggable element red to show error
-            draggableElem.classList.remove('bg-warning');
-            draggableElem.classList.add('bg-danger', 'text-white');
-        }
-    });
+			if (selected === correctAnswer) {
+				$(this).removeClass("btn-outline-dark").addClass("btn-success");
+				$("#next-btn").removeClass("d-none");
+			} else {
+				$(this).removeClass("btn-outline-dark").addClass("btn-danger");
+				$("#next-btn").addClass("d-none");
+			}
+		});
+	}
 });
