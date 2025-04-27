@@ -1,27 +1,50 @@
 {% extends "base.html" %}
+
 {% block content %}
   <div class="container py-5">
     <h2>{{ slide.title }}</h2>
+    
     <ul>
       {% for line in slide.content %}
         <li>{{ line|safe }}</li>
       {% endfor %}
     </ul>
+
     {% if slide.code %}
       <pre>{{ slide.code }}</pre>
     {% endif %}
+
     {% if slide.image %}
-      <img src="{{ url_for('static', filename=slide.image) }}" alt="Tutorial Image" class="img-fluid">
+      {% if page == total %}
+        <!-- Only make the last page's image full width -->
+        <img src="{{ url_for('static', filename=slide.image) }}" alt="Tutorial Image" class="tutorial-banner">
+      {% else %}
+        <!-- Otherwise, just use default natural image -->
+        <img src="{{ url_for('static', filename=slide.image) }}" alt="Tutorial Image" class="img-fluid">
+      {% endif %}
     {% endif %}
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: {{ (page / total) * 100 }}%;" aria-valuenow="{{ page }}" aria-valuemin="0" aria-valuemax="{{ total }}"></div>
+
+    <div class="progress mt-4">
+      <div 
+        class="progress-bar" 
+        role="progressbar" 
+        style="width: {{ (page / total) * 100 }}%;" 
+        aria-valuenow="{{ page }}" 
+        aria-valuemin="0" 
+        aria-valuemax="{{ total }}">
+      </div>
     </div>
+
     <form method="post" class="mt-4 d-flex justify-content-between">
       {% if page > 1 %}
         <a href="{{ url_for('learn', page=page-1) }}" class="btn btn-secondary">← Prev</a>
       {% endif %}
       <button class="btn btn-primary">
-        {% if page < total %}Next →{% else %}Go to Quiz{% endif %}
+        {% if page < total %}
+          Next →
+        {% else %}
+          Go to Quiz
+        {% endif %}
       </button>
     </form>
   </div>
