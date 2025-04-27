@@ -14,51 +14,78 @@
       "title": "Initial Structure",
       "content": [
         "Imagine you cloned a repo with just <code>hello.c</code>. Under the hood:",
-        "• A <strong>commit</strong> marks the snapshot",
-        "• That commit points to a <strong>tree</strong>",
-        "• The tree points to a <strong>blob</strong> containing <code>hello.c</code>"
-      ]
+        "• A <strong>commit</strong> marks the snapshot"
+      ],
+      "image": "images/tutorial_2.jpg"
     },
     {
       "page": 3,
-      "title": "Making a Commit",
+      "title": "Initial Structure",
       "content": [
-        "Now let’s add a <code>Makefile</code> and commit it:"
+        "Imagine you cloned a repo with just <code>hello.c</code>. Under the hood:",
+        "• A <strong>commit</strong> marks the snapshot",
+        "• That commit points to a <strong>tree</strong>"
       ],
-      "code": "echo \"hello:\" > Makefile\ngit add Makefile && git commit -m \"Add Makefile\""
+      "image": "images/tutorial_3.jpg"
     },
     {
       "page": 4,
+      "title": "Initial Structure",
+      "content": [
+        "Imagine you cloned a repo with just <code>hello.c</code>. Under the hood:",
+        "• A <strong>commit</strong> marks the snapshot",
+        "• That commit points to a <strong>tree</strong>",
+        "• The tree points to a <strong>blob</strong> containing <code>hello.c</code>"
+      ],
+      "image": "images/tutorial_4.jpg"
+    },
+    {
+      "page": 5,
+      "title": "Making a Commit",
+      "content": [
+        "Now let's add a <code>Makefile</code> and commit it:"
+      ],
+      "code": "echo \"hello:\" > Makefile\ngit add Makefile && git commit -m \"Add Makefile\"",
+      "image": "images/tutorial_5.jpg"
+    },
+    {
+      "page": 6,
       "title": "Committing a Change to an Existing File",
       "content": [
         "Edit <code>hello.c</code>, then commit again. Git:",
         "• reuses the same blob for unchanged files",
         "• creates a new blob if the file changed"
       ],
-      "code": "vim hello.c\ngit add hello.c && git commit -m \"Add an epic line\""
+      "code": "vim hello.c\ngit add hello.c && git commit -m \"Add an epic line\"",
+      "image": "images/tutorial_6.jpg"
     },
     {
-      "page": 5,
+      "page": 7,
       "title": "Subdirectories",
       "content": [
         "Git represents folders via nested trees. Example:"
       ],
-      "code": "mkdir subdir\necho \"abc\" > subdir/notes.txt\ngit add subdir/notes.txt && git commit -m \"Track notes.txt\""
+      "code": "mkdir subdir\necho \"abc\" > subdir/notes.txt\ngit add subdir/notes.txt && git commit -m \"Track notes.txt\"",
+      "image": "images/tutorial_7.jpg"
     },
     {
-      "page": 6,
+      "page": 8,
       "title": "The Index",
       "content": [
-        "The <code>.git/index</code> is your staging area. It maps filenames → blob hashes before you commit."
-      ]
+        "The <code>.git/index</code> is your staging area. It maps filenames → blob hashes before you commit.",
+        "It is a binary file that contains a list of files and their corresponding blob object hashes."
+      ],
+      "code": "vim hello.c\ngit add hello.c \ngit commit -m \"Add a line about the index\"",
+      "image": "images/tutorial_8.jpg"
     },
     {
-      "page": 7,
+      "page": 9,
       "title": "Tutorial Complete!",
       "content": [
-        "You’ve seen how Git creates & links blobs, trees, commits, and uses the index.",
+        "You've seen how Git creates & links blobs, trees, commits, and uses the index.",
         "Ready for the quiz?"
-      ]
+      ],
+      "image": "images/tutorial_9.jpg"
     }
   ]
   
