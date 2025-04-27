@@ -45,3 +45,11 @@
 .text-white {
     color: white !important;
 }
+
+.tutorial-banner {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+  
