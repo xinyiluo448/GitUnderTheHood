@@ -21,7 +21,7 @@
 	},
 	{
 		"page": 5,
-		"prompt": "5. Which of the following best describes the purpose of .git/index file in Git?\n\nA) It stores the complete history of commits and branches.\nB) It contains configuration settings for the Git repository.\nC) It represents the staging area by tracking files and their blob object hashes.\nD) It holds the contents of the working directory.",
+		"prompt": "5. Which of the following best describes the purpose of .git/index file in Git?",
 		"images": []
 	}
 ]
