@@ -16,7 +16,7 @@
 	},
 	{
 		"page": 4,
-		"prompt": "4. Now, let’s make a sub-directory “subdir” inside of repo. Suppose you commit his empty subdir. Which of the below structures is correct?",
+		"prompt": "4. Now, let’s make a sub-directory “subdir” inside of repo. Suppose you commit this empty subdir. Which of the below structures is correct?",
 		"images": ["images/quiz4-1.png", "images/quiz4-2.png"]
 	},
 	{
