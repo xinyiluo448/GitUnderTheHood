@@ -3,27 +3,28 @@
 <div class="container py-5">
   <div class="row w-100">
     <!-- Left column: image -->
-    <div class="col-md-6 d-flex justify-content-center">
+    <div class="col-md-6 d-flex justify-content-center" style="padding-right: 20px;">
       <img src="{{ url_for('static', filename='images/homepage.jpg') }}"
-           class="img-fluid" alt="Git Logo">
+           class="img-fluid" alt="Git Logo" style="margin-bottom: 20px;">
     </div>
     <!-- Right column: text + button -->
-    <div class="col-md-6">
+    <div class="col-md-6" style="padding-left: 20px;">
       <!-- Dark gray heading -->
       <h1 class="display-4" style="color: #333333;">
         Understanding the Core of Git's Data Structure
       </h1>
       <!-- Light gray paragraph -->
-      <p class="lead" style="color: #777777;">
+      <p class="lead" style="color: #777777; margin-bottom: 30px;">
         This webapp is your interactive guide to mastering Git objects—blobs, trees, and commits.
         With clear explanations, visual aids, and quizzes, you'll gain a solid understanding of how
         Git stores and manages project history. Learn Git objects the fun and effective way.
       </p>
-      <a href="{{ url_for('learn', page=1) }}"
-          class="btn btn-primary btn-lg text-white mt-4">
-        Let’s start learning!
-      </a>
-   
+      <div class="d-flex justify-content-center">
+        <a href="{{ url_for('learn', page=1) }}"
+            class="btn btn-primary btn-lg text-white mt-4">
+          Let's start learning!
+        </a>
+      </div>
     </div>
   </div>
 </div>
