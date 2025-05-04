@@ -58,3 +58,7 @@ body {
 
 .text-dark-gray { color: #333; }
 .text-light-gray { color: #777; }
+
+.active a {
+    font-weight: bold;
+}
