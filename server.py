@@ -12,7 +12,7 @@ tutorials = load_tutorial()
 @app.route('/')
 def homepage():
     session.clear()
-    return render_template('home.html')
+    return render_template('home.html', current_section='home')
 
 @app.route('/learn/<int:page>', methods=['GET', 'POST'])
 def learn(page):
@@ -39,7 +39,7 @@ def learn(page):
             return redirect(url_for('quiz', page=1))
 
     # Pass the current slide, page number, and total slides to the template
-    return render_template('tutorial.html', slide=slide, page=page, total=total)
+    return render_template('tutorial.html', slide=slide, page=page, total=total, current_section='learn')
 
 def load_questions():
 	with open("data/quiz.json", 'r', encoding='utf-8') as f:
@@ -70,7 +70,8 @@ def quiz(page):
         'quiz.html', 
         question=question, 
         total_pages=total_pages, 
-        best_quiz_page=session['best_quiz_page']
+        best_quiz_page=session['best_quiz_page'],
+        current_section='quiz'
     )
 
 # Add a redo button to clear session data (which contains best_quiz_page)
@@ -81,7 +82,7 @@ def redo_quiz():
 
 @app.route("/quiz_result")
 def quiz_result():
-    return render_template("quiz_result.html")
+    return render_template("quiz_result.html", current_section='quiz')
 
 
 if __name__ == '__main__':
