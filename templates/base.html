@@ -16,13 +16,13 @@
 		<div class="container">
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
-					<a class="nav-link me-5" href="/">Home</a>
+					<a class="nav-link me-5 {{ 'active' if current_section == 'home' else '' }}" href="/">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link me-5" href="/learn/1">Tutorial</a>
+					<a class="nav-link me-5 {{ 'active' if current_section == 'learn' else '' }}" href="/learn/1">Tutorial</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link me-5" href="/quiz/1">Quiz</a>
+					<a class="nav-link me-5 {{ 'active' if current_section == 'quiz' else '' }}" href="/quiz/1">Quiz</a>
 				</li>	
 			</ul>
 			
