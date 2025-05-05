@@ -13,7 +13,7 @@
 				{% for img in question.images %}
 					{% set img_width = 100 / img_count %}
 					<img src="{{ url_for('static', filename=img) }}"
-						class="rounded shadow-sm clickable-image"
+						class="rounded shadow-sm {% if question.page != 2 %}clickable-image{% endif %}"
 						style="flex: 1 1 calc({{ img_width }}% - 1rem); max-width: calc({{ img_width }}% - 1rem); height: auto; object-fit: contain;"
 						alt="Image for question {{ question.page }}"
 						id="img-{{ loop.index }}" 
@@ -125,7 +125,9 @@
 			</form>
 
 		</div>
-		<a href="{{ url_for('redo_quiz') }}" class="btn btn-outline-secondary mt-3 ms-2">Redo Quiz</a>
+		{% if question.page == 5 %}
+			<a href="{{ url_for('redo_quiz') }}" class="btn btn-outline-secondary mt-3 ms-2">Redo Quiz</a>
+		{% endif %}
 	</div>
 
 	<!-- Move the progress bar here -->

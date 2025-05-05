@@ -11,7 +11,9 @@ tutorials = load_tutorial()
 
 @app.route('/')
 def homepage():
+    best_quiz_page = session['best_quiz_page'] if 'best_quiz_page' in session else -1
     session.clear()
+    session['best_quiz_page'] = best_quiz_page
     return render_template('home.html', current_section='home')
 
 @app.route('/learn/<int:page>', methods=['GET', 'POST'])
