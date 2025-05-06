@@ -14,7 +14,7 @@
       "title": "Initial Structure",
       "content": [
         "Imagine you cloned a repo with just <code>hello.c</code>. Under the hood:",
-        "• A <strong>commit</strong> marks the snapshot"
+        "A <strong>commit</strong> marks the snapshot"
       ],
       "image": "images/tutorial_2.jpg"
     },
@@ -23,8 +23,8 @@
       "title": "Initial Structure",
       "content": [
         "Imagine you cloned a repo with just <code>hello.c</code>. Under the hood:",
-        "• A <strong>commit</strong> marks the snapshot",
-        "• That commit points to a <strong>tree</strong>"
+        "A <strong>commit</strong> marks the snapshot",
+        "That commit points to a <strong>tree</strong>"
       ],
       "image": "images/tutorial_3.jpg"
     },
@@ -33,9 +33,9 @@
       "title": "Initial Structure",
       "content": [
         "Imagine you cloned a repo with just <code>hello.c</code>. Under the hood:",
-        "• A <strong>commit</strong> marks the snapshot",
-        "• That commit points to a <strong>tree</strong>",
-        "• The tree points to a <strong>blob</strong> containing <code>hello.c</code>"
+        "A <strong>commit</strong> marks the snapshot",
+        "That commit points to a <strong>tree</strong>",
+        "The tree points to a <strong>blob</strong> containing <code>hello.c</code>"
       ],
       "image": "images/tutorial_4.jpg"
     },
