@@ -24,7 +24,7 @@
       "content": [
         "Imagine you cloned a repo with just <code>hello.c</code>. Under the hood:",
         "A <strong>commit</strong> marks the snapshot",
-        "That commit points to a <strong>tree</strong>"
+        "That commit points to a <strong>tree</strong> (that represents the git directory)"
       ],
       "image": "images/tutorial_3.jpg"
     },
@@ -43,9 +43,11 @@
       "page": 5,
       "title": "Making a Commit",
       "content": [
-        "Now let's add a <code>Makefile</code> and commit it:"
+        "Now let's add a <code>Makefile</code> and commit it. Git:",
+		"makes a new commit, a new tree object, and a blob for Makefile",
+		"reuses the same blob for unchanged files"
       ],
-      "code": "echo \"hello:\" > Makefile\ngit add Makefile && git commit -m \"Add Makefile\"",
+      "code": "$ echo \"hello:\" > Makefile\n$ git add Makefile && git commit -m \"Add Makefile\"",
       "image": "images/tutorial_5.jpg"
     },
     {
@@ -56,7 +58,7 @@
         "reuses the same blob for unchanged files",
         "creates a new blob if the file changed"
       ],
-      "code": "vim hello.c\ngit add hello.c && git commit -m \"Add an epic line\"",
+      "code": "$ vim hello.c\n$ git add hello.c && git commit -m \"Add an epic line\"",
       "image": "images/tutorial_6.jpg"
     },
     {
@@ -65,7 +67,7 @@
       "content": [
         "Git represents folders via nested trees. Example:"
       ],
-      "code": "mkdir subdir\necho \"abc\" > subdir/notes.txt\ngit add subdir/notes.txt && git commit -m \"Track notes.txt\"",
+      "code": "$ mkdir subdir\n$ echo \"abc\" > subdir/notes.txt\n$ git add subdir/notes.txt && git commit -m \"Track notes.txt\"",
       "image": "images/tutorial_7.jpg"
     },
     {
@@ -74,8 +76,8 @@
       "content": [
         "The <code>.git/index</code> is your staging area. It maps filenames → blob hashes before you commit.",
         "It is a binary file that contains a list of files and their corresponding blob object hashes."
-      ],
-      "code": "vim hello.c\ngit add hello.c \ngit commit -m \"Add a line about the index\"",
+		],
+      "code": "$ vim hello.c\n$ git ls-files --stage\n100644 850742712c6609bf85aecca7c24c2eebf4d89b0a 0\tMakefile\n100644 9b1d2628d4bfb5cd74a2c7138ce0572a89676554 0\thello.c\n100644 8baef1b4abc478178b004d62031cf7fe6db6f903 0\tsubdir\/notes.txt\n$ git add hello.c \n$ git ls-files --stage\n100644 850742712c6609bf85aecca7c24c2eebf4d89b0a 0\tMakefile\n100644 e2047c4512fa96b96ab9e39818ab7c2d3dae00ae 0\thello.c\n100644 8baef1b4abc478178b004d62031cf7fe6db6f903 0\tsubdir\/notes.txt\n$ git commit -m \"Add a line about the index\"",
       "image": "images/tutorial_8.jpg"
     },
     {
