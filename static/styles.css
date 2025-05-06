@@ -1,14 +1,19 @@
+body {
+    background-color: #e5e5d8;   
+    font-family: 'Roboto', sans-serif;   
+    font-size: 25px;                     
+    line-height: 1.6;                    
+}
+
 .navbar {
-	background-color: #ced3d6;
+    background-color: #ced3d6;
 }
 
 .navbar .nav-link:hover {
+    font-size: 1.25rem; 
 	color: #0d47a1 !important;
 }
 
-body {
-    background-color: #e5e5d8;  /* light mint-green—swap to your preferred hex */
-  }
 
 .clickable-image:hover {
 	transform: scale(1.05); /* Slightly enlarge the image when hovered */
@@ -62,3 +67,20 @@ body {
 .active a {
     font-weight: bold;
 }
+
+
+/* Make all .btns bigger */
+.btn {
+    font-size: 20px;       /* ~20px if your root is 16px */
+    padding: 0.75rem 1.25rem; /* more top/bottom and left/right space */
+  }
+  
+  /* If you only want larger “primary” buttons: */
+  .btn-primary {
+    font-size: 20px;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  /* Leverage Bootstrap’s built-in “btn-lg” utility too—just add btn-lg to HTML: */
+  /* <button class="btn btn-primary btn-lg">Click me</button> */
+  
