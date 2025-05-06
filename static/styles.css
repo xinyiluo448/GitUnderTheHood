@@ -10,7 +10,7 @@ body {
 }
 
 .navbar .nav-link:hover {
-    font-size: 1.25rem; 
+    font-size: 25px;    
 	color: #0d47a1 !important;
 }
 
