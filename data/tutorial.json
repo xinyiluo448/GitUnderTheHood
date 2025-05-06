@@ -53,8 +53,8 @@
       "title": "Committing a Change to an Existing File",
       "content": [
         "Edit <code>hello.c</code>, then commit again. Git:",
-        "• reuses the same blob for unchanged files",
-        "• creates a new blob if the file changed"
+        "reuses the same blob for unchanged files",
+        "creates a new blob if the file changed"
       ],
       "code": "vim hello.c\ngit add hello.c && git commit -m \"Add an epic line\"",
       "image": "images/tutorial_6.jpg"
