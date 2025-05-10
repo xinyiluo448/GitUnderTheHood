@@ -19,9 +19,19 @@ The goal of this project is to make the invisible processes of Git visible and u
 
 Watch the demo: [GitUnderTheHood-demo](https://youtu.be/sx-gfm1B0A4)
 
-### 👨‍👩‍👧‍👦 Team Membersg
+### 👨‍👩‍👧‍👦 Team Members
 
 - Xinyi Luo – xl3466
 - Ziyao Zhou – zz2915
 - Yixiao Li – yl5760
 - Wenxin Song – ws2747
+
+### 🛠️ How to Run the App
+To start the GitUnderTheHood web app locally, make sure you have Python 3 installed. Then, run the following command in your terminal:
+
+```bash
+python3 server.py
+```
+
+This will start a local development server. Open your browser and go to:
+http://localhost:5001
