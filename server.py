@@ -73,7 +73,8 @@ def quiz(page):
         question=question, 
         total_pages=total_pages, 
         best_quiz_page=session['best_quiz_page'],
-        current_section='quiz'
+        current_section='quiz',
+        hint=question.get('hint', '')  # Pass the hint to the template
     )
 
 # Add a redo button to clear session data (which contains best_quiz_page)
