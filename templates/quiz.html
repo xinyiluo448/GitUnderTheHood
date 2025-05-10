@@ -12,15 +12,29 @@
 				{% set img_count = question.images | length %}
 				{% for img in question.images %}
 					{% set img_width = 100 / img_count %}
-					<img src="{{ url_for('static', filename=img) }}"
-						class="rounded shadow-sm {% if question.page != 2 %}clickable-image{% endif %}"
-						style="flex: 1 1 calc({{ img_width }}% - 1rem); max-width: calc({{ img_width }}% - 1rem); height: auto; object-fit: contain;"
-						alt="Image for question {{ question.page }}"
-						id="img-{{ loop.index }}" 
-                     				data-index="{{ loop.index }}">
+					{% if question.page == 1 or question.page == 2 %}
+						<img src="{{ url_for('static', filename=img) }}"
+							class="rounded shadow-sm"
+							style="width: 600px; height: 400px; object-fit: contain;"
+							alt="Image for question {{ question.page }}"
+							id="img-{{ loop.index }}" 
+							data-index="{{ loop.index }}">
+					{% else %}
+						<img src="{{ url_for('static', filename=img) }}"
+							class="rounded shadow-sm clickable-image"
+							style="flex: 1 1 calc({{ img_width }}% - 1rem); max-width: calc({{ img_width }}% - 1rem); height: auto; object-fit: contain;"
+							alt="Image for question {{ question.page }}"
+							id="img-{{ loop.index }}" 
+							data-index="{{ loop.index }}">
+					{% endif %}
 				{% endfor %}
 			</div>
 			{% endif %}
+
+			<!-- Add hint display area -->
+			<div id="hint-area" class="alert alert-info mt-3 d-none">
+				<strong>Hint:</strong> <span id="hint-text">{{ hint }}</span>
+			</div>
 		</div>
 
 		{% if question.page == 1 %}
