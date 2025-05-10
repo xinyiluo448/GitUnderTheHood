@@ -17,7 +17,7 @@ The goal of this project is to make the invisible processes of Git visible and u
 
 ### 🎥 Demo Video
 
-Watch the demo: [GitUnderTheHood-demo](https://www.youtube.com/watch?v=yNn9cz9TgZo)
+Watch the demo: [GitUnderTheHood-demo](https://youtu.be/sx-gfm1B0A4)
 
 ### 👨‍👩‍👧‍👦 Team Membersg
 
