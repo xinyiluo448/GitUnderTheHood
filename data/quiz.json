@@ -2,27 +2,32 @@
 	{
 		"page": 1,
 		"prompt": "1. Drag the corresponding Git Object to the correct circles based on the internal structure of Git.",
-		"images": []
+		"images": [],
+		"hint": "Remember: Commits point to trees, trees point to blobs, and blobs store file contents."
 	},
 	{
 		"page": 2,
 		"prompt": "2. You are given the initial git repository, with one file quiz.txt in it. The initial structure is demonstrated below. Suppose you make some changes to quiz.txt without committing it, which Git object will be created?",
-		"images": ["images/quiz2.png"]
+		"images": ["images/quiz2.png"],
+		"hint": "Think about what happens when you modify a file but haven't committed it yet. The changes are stored in the working directory, but no new Git objects are created until you stage and commit."
 	},
 	{
 		"page": 3,
 		"prompt": "3. Now, you committed your change to quiz.txt. Which of the following graphs correctly represents the new structure?",
-		"images": ["images/quiz3-1.png", "images/quiz3-2.png"]
+		"images": ["images/quiz3-1.png", "images/quiz3-2.png"],
+		"hint": "When you commit changes, Git creates a new commit object that points to a new tree. The tree points to the new blob for the modified file, but reuses the same blobs for unchanged files."
 	},
 	{
 		"page": 4,
-		"prompt": "4. Now, let’s make a sub-directory “subdir” inside of repo. Suppose you commit this empty subdir. Which of the below structures is correct?",
-		"images": ["images/quiz4-2.png", "images/quiz4-1.png"]
+		"prompt": "4. Now, let's make a sub-directory \"subdir\" inside of repo. Suppose you commit this empty subdir. Which of the below structures is correct?",
+		"images": ["images/quiz4-2.png", "images/quiz4-1.png"],
+		"hint": "An empty directory in Git is represented by a tree object with no entries. The commit points to this new tree, which is separate from the existing tree."
 	},
 	{
 		"page": 5,
 		"prompt": "5. Which of the following best describes the purpose of .git/index file in Git?",
-		"images": []
+		"images": [],
+		"hint": "The index file is Git's staging area. It keeps track of which files are staged for the next commit and stores their blob hashes."
 	}
 ]
       
